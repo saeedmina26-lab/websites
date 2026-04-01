@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جاليري قصاقيص | Qasaqees Gallery by Koky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Tajawal:wght@200;300;400;500;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pink: #E8567F;
+    --pink-deep: #D63B6B;
+    --pink-blush: #FDE8EF;
+    --pink-whisper: #FFF5F8;
+    --red: #C9354B;
+    --red-soft: #E8495E;
+    --white: #FFFFFF;
+    --offwhite: #FFFBFC;
+    --text: #2D1620;
+    --text-soft: #7A4B60;
+    --text-muted: #B8879E;
+    --border: rgba(232,86,127,0.15);
+    --border-strong: rgba(232,86,127,0.3);
+    --shadow-sm: 0 2px 12px rgba(45,22,32,0.04);
+    --shadow-md: 0 8px 30px rgba(232,86,127,0.08);
+    --shadow-lg: 0 16px 50px rgba(232,86,127,0.12);
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--offwhite);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    position: relative;
+    background: var(--white);
+    padding: 3.5rem 1.5rem 2.8rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(232,86,127,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(201,53,75,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--red), var(--pink), transparent);
+  }
+
+  /* floating petals */
+  .petal {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--pink-blush);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.5;
+    animation: float 8s ease-in-out infinite;
+  }
+  .petal:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; width: 12px; height: 12px; }
+  .petal:nth-child(2) { top: 25%; right: 15%; animation-delay: 2s; width: 6px; height: 6px; opacity: 0.3; }
+  .petal:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+  .petal:nth-child(4) { top: 40%; right: 8%; animation-delay: 1s; width: 10px; height: 10px; opacity: 0.4; }
+  .petal:nth-child(5) { bottom: 20%; right: 25%; animation-delay: 3s; width: 7px; height: 7px; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(45deg); }
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .hero-mono {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .hero-mono::before,
+  .hero-mono::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink));
+  }
+  .hero-mono::before { right: calc(100% + 14px); }
+  .hero-mono::after { left: calc(100% + 14px); transform: scaleX(-1); }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.8rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.05;
+    margin-bottom: 4px;
+    letter-spacing: -1px;
+  }
+
+  .hero-name em {
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(135deg, var(--pink), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-name-ar {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-soft);
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+  }
+
+  .hero-tagline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    font-weight: 300;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1.8rem;
+  }
+
+  .hd-line { width: 50px; height: 1px; background: var(--pink); opacity: 0.4; }
+  .hd-diamond {
+    width: 6px; height: 6px;
+    background: var(--pink);
+    transform: rotate(45deg);
+  }
+  .hd-dot {
+    width: 4px; height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+
+  /* ═══ SOCIAL ═══ */
+  .social-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    text-transform: uppercase;
+  }
+
+  .social-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  .btn-whatsapp  { background: #22c55e; color: white; }
+  .btn-instagram {
+    background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6);
+    color: white;
+  }
+  .btn-facebook  { background: #1877F2; color: white; }
+
+  /* ═══ NAV ═══ */
+  .nav-wrap {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    white-space: nowrap;
+    padding: 14px 20px;
+    border: none;
+    font-size: 11.5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    color: var(--text-muted);
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .tab-btn.active {
+    color: var(--pink);
+    border-bottom: 2px solid var(--pink);
+  }
+
+  .tab-btn:hover:not(.active) {
+    color: var(--text-soft);
+  }
+
+  /* ═══ CONTENT ═══ */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.2rem 4rem;
+  }
+
+  .section { display: none; animation: fadeUp 0.5s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--text);
+    font-weight: 300;
+    margin-bottom: 2px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 1.6rem;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  /* ═══ PRODUCTS ═══ */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .product-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(232,86,127,0.03), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--pink);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .product-card:hover::after { opacity: 1; }
+
+  .product-img {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--pink-whisper), var(--pink-blush));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-img::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(232,86,127,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .product-info { padding: 14px 14px 16px; }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1px;
+  }
+
+  .product-name-ar {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  .product-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .tag {
+    background: var(--pink-whisper);
+    color: var(--pink);
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+  }
+
+  .order-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .order-btn:hover {
+    background: linear-gradient(135deg, var(--pink-deep), var(--red));
+    box-shadow: 0 4px 16px rgba(232,86,127,0.3);
+  }
+
+  /* ═══ GALLERY ═══ */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  @media (min-width: 600px) {
+    .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--pink-whisper), var(--pink-blush));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(45,22,32,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+    border-color: var(--pink);
+    box-shadow: var(--shadow-md);
+  }
+
+  .gallery-item:hover::after { opacity: 1; }
+
+  .gallery-note {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    line-height: 1.8;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  /* ═══ ORDER FORM ═══ */
+  .order-form {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .order-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--red), var(--pink));
+  }
+
+  .form-row { margin-bottom: 18px; }
+
+  .form-label {
+    display: block;
+    font-size: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-bottom: 7px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: 'Tajawal', sans-serif;
+    background: var(--pink-whisper);
+    color: var(--text);
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(232,86,127,0.08);
+    background: var(--white);
+  }
+
+  .form-textarea { min-height: 100px; resize: vertical; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--pink), var(--red));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201,53,75,0.3);
+  }
+
+  .submit-btn:hover::before { opacity: 1; }
+  .submit-btn:active { transform: translateY(0); }
+
+  /* ═══ PAYMENT ═══ */
+  .payment-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .payment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--red), var(--pink));
+  }
+
+  .pay-title-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .pay-title-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--pink), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+  }
+
+  .qr-placeholder {
+    width: 160px;
+    height: 160px;
+    margin: 1.2rem auto;
+    background: var(--pink-whisper);
+    border-radius: var(--radius);
+    border: 2px dashed var(--border-strong);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--pink);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .payment-methods { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1rem; }
+
+  .pay-method {
+    flex: 1;
+    min-width: 130px;
+    background: var(--pink-whisper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 14px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .pay-method:hover {
+    border-color: var(--pink);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pay-method-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .pay-method-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .pay-method-ar {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  .pay-note {
+    margin-top: 1.2rem;
+    background: linear-gradient(135deg, rgba(201,53,75,0.04), rgba(232,86,127,0.04));
+    border-radius: var(--radius);
+    border: 1px solid rgba(201,53,75,0.15);
+    padding: 16px;
+    font-size: 13px;
+    color: var(--red);
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  /* ═══ ABOUT ═══ */
+  .about-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .about-card p {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 2;
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pink-whisper);
+    border-radius: 50%;
+    font-size: 15px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-size: 12px;
+    line-height: 2;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--red), var(--pink), transparent);
+  }
+
+  .footer strong {
+    color: var(--pink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .footer a { color: var(--pink); text-decoration: none; }
+  .footer a:hover { color: var(--pink-blush); }
+
+  /* ═══ TOAST ═══ */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--pink), var(--red));
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    z-index: 9999;
+    white-space: nowrap;
+    box-shadow: 0 8px 30px rgba(201,53,75,0.3);
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ═══ FLOATING WhatsApp ═══ */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(34,197,94,0.4);
+    z-index: 99;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(34,197,94,0.5); }
+
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (min-width: 700px) {
+    .hero { padding: 4.5rem 2rem 3.5rem; }
+    .hero-name { font-size: 5rem; }
+    .hero-name-ar { font-size: 1.5rem; }
+    .content { padding: 2.5rem 2rem 5rem; }
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  }
+
+  @media (max-width: 400px) {
+    .hero-name { font-size: 2.6rem; }
+    .hero-mono::before, .hero-mono::after { width: 24px; }
+    .tab-btn { padding: 12px 14px; font-size: 10.5px; letter-spacing: 1px; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+
+  /* ═══ SCROLLBAR ═══ */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--pink-whisper); }
+  ::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--pink-deep); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+
+  <div class="hero-content">
+    <div class="hero-mono">Handmade with Love</div>
+    <h1 class="hero-name">Qasaqees <em>Gallery</em></h1>
+    <div class="hero-name-ar">جاليري قصاقيص</div>
+    <p class="hero-tagline">by Koky &mdash; Bridal &middot; Engagement &middot; Flowers &middot; Décor</p>
+
+    <div class="hero-divider">
+      <div class="hd-line"></div>
+      <div class="hd-dot"></div>
+      <div class="hd-diamond"></div>
+      <div class="hd-dot"></div>
+      <div class="hd-line"></div>
+    </div>
+
+    <div class="social-bar">
+      <a class="social-btn btn-whatsapp" href="https://wa.me/201278939652" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.531 5.845L.057 23.535a.75.75 0 00.918.918l5.69-1.474C8.374 23.601 10.148 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.851 0-3.624-.484-5.166-1.335l-.37-.213-3.828.991.991-3.828-.213-.37A9.715 9.715 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        WhatsApp
+      </a>
+      <a class="social-btn btn-instagram" href="https://instagram.com" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a class="social-btn btn-facebook" href="https://facebook.com" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<div class="nav-wrap">
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('products', this)">Shop / تسوق</button>
+    <button class="tab-btn" onclick="showTab('gallery', this)">Gallery / معرض</button>
+    <button class="tab-btn" onclick="showTab('order', this)">Order / اطلبي</button>
+    <button class="tab-btn" onclick="showTab('payment', this)">Pay / الدفع</button>
+    <button class="tab-btn" onclick="showTab('about', this)">About / عنّا</button>
+  </nav>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+  <!-- SHOP -->
+  <section class="section active" id="sec-products">
+    <h2 class="section-heading">Our Collections</h2>
+    <p class="section-sub">مجموعاتنا — اضغطي على أي منتج للطلب</p>
+    <div class="products-grid">
+
+      <div class="product-card" onclick="goOrder('Bridal Accessories')">
+        <div class="product-img">💍</div>
+        <div class="product-info">
+          <div class="product-name">Bridal Accessories</div>
+          <div class="product-name-ar">إكسسوارات عرائس</div>
+          <div class="product-tags">
+            <span class="tag">Jerbs</span>
+            <span class="tag">Mirrors</span>
+            <span class="tag">Fans</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="goOrder('Engagement Accessories')">
+        <div class="product-img">💛</div>
+        <div class="product-info">
+          <div class="product-name">Engagement</div>
+          <div class="product-name-ar">إكسسوارات خطوبة</div>
+          <div class="product-tags">
+            <span class="tag">Jerbs</span>
+            <span class="tag">Fans</span>
+            <span class="tag">Gold Trays</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="goOrder('Flower Bouquets')">
+        <div class="product-img">💐</div>
+        <div class="product-info">
+          <div class="product-name">Flower Bouquets</div>
+          <div class="product-name-ar">باقات ورد</div>
+          <div class="product-tags">
+            <span class="tag">Proposal</span>
+            <span class="tag">Graduation</span>
+            <span class="tag">Special</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="goOrder('Rose Drying Frame')">
+        <div class="product-img">🌹</div>
+        <div class="product-info">
+          <div class="product-name">Rose Drying Frames</div>
+          <div class="product-name-ar">إطارات تجفيف ورد</div>
+          <div class="product-tags">
+            <span class="tag">Small</span>
+            <span class="tag">Medium</span>
+            <span class="tag">Large</span>
+            <span class="tag">Full</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="goOrder('Graduation Cap')">
+        <div class="product-img">🎓</div>
+        <div class="product-info">
+          <div class="product-name">Graduation Caps</div>
+          <div class="product-name-ar">قبعات تخرج</div>
+          <div class="product-tags">
+            <span class="tag">Simple</span>
+            <span class="tag">Full</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="goOrder('Extra Accessories')">
+        <div class="product-img">🎀</div>
+        <div class="product-info">
+          <div class="product-name">Extra Accessories</div>
+          <div class="product-name-ar">إكسسوارات إضافية</div>
+          <div class="product-tags">
+            <span class="tag">Glasses</span>
+            <span class="tag">Umbrellas</span>
+            <span class="tag">Pins</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="goOrder('Special Offer')">
+        <div class="product-img">🏷️</div>
+        <div class="product-info">
+          <div class="product-name">Offers & Handmade</div>
+          <div class="product-name-ar">عروض وأعمال يدوية</div>
+          <div class="product-tags">
+            <span class="tag">Immediate</span>
+            <span class="tag">Handmade</span>
+          </div>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="sec-gallery">
+    <h2 class="section-heading">Photo Gallery</h2>
+    <p class="section-sub">معرض الصور — أعمالنا الجميلة</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">💍</div>
+      <div class="gallery-item">💐</div>
+      <div class="gallery-item">🌹</div>
+      <div class="gallery-item">🎓</div>
+      <div class="gallery-item">💛</div>
+      <div class="gallery-item">🎀</div>
+      <div class="gallery-item">🪞</div>
+      <div class="gallery-item">🌸</div>
+      <div class="gallery-item">💝</div>
+      <div class="gallery-item">🎁</div>
+      <div class="gallery-item">🌺</div>
+      <div class="gallery-item">✨</div>
+    </div>
+    <div class="gallery-note">
+      📸 Replace emoji placeholders above with your real product photos<br>
+      <strong style="color:var(--pink);">تابعينا على إنستاجرام لرؤية كل أعمالنا</strong>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section class="section" id="sec-order">
+    <h2 class="section-heading">Place an Order</h2>
+    <p class="section-sub">اطلبي الآن — أو تواصلي معنا مباشرة على واتساب</p>
+    <div class="order-form">
+
+      <div class="form-row">
+        <label class="form-label">Full Name / الاسم كامل *</label>
+        <input class="form-input" id="f-name" type="text" placeholder="اسمك / Your name">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Phone Number / رقم التليفون *</label>
+        <input class="form-input" id="f-phone" type="tel" placeholder="01XXXXXXXXX">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Governorate / المحافظة *</label>
+        <select class="form-select" id="f-gov">
+          <option value="">اختاري / Select</option>
+          <option>Cairo / القاهرة</option>
+          <option>Giza / الجيزة</option>
+          <option>Alexandria / الإسكندرية</option>
+          <option>Dakahlia / الدقهلية</option>
+          <option>Sharqia / الشرقية</option>
+          <option>Qalyubia / القليوبية</option>
+          <option>Gharbia / الغربية</option>
+          <option>Monufia / المنوفية</option>
+          <option>Beheira / البحيرة</option>
+          <option>Kafr El Sheikh / كفر الشيخ</option>
+          <option>Damietta / دمياط</option>
+          <option>Port Said / بورسعيد</option>
+          <option>Ismailia / الإسماعيلية</option>
+          <option>Suez / السويس</option>
+          <option>Assiut / أسيوط</option>
+          <option>Sohag / سوهاج</option>
+          <option>Qena / قنا</option>
+          <option>Luxor / الأقصر</option>
+          <option>Aswan / أسوان</option>
+          <option>Other / أخرى</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Product / المنتج *</label>
+        <select class="form-select" id="f-product">
+          <option value="">اختاري منتج / Choose product</option>
+          <option>Bridal Accessories — Jerbs</option>
+          <option>Bridal Accessories — Mirrors</option>
+          <option>Bridal Accessories — Fans</option>
+          <option>Engagement Accessories — Jerbs &amp; Fans</option>
+          <option>Engagement Accessories — Gold Trays</option>
+          <option>Engagement Accessories — Mirrors</option>
+          <option>Flower Bouquet — Proposal</option>
+          <option>Flower Bouquet — Graduation</option>
+          <option>Flower Bouquet — Special</option>
+          <option>Rose Drying Frame — Small</option>
+          <option>Rose Drying Frame — Medium</option>
+          <option>Rose Drying Frame — Large</option>
+          <option>Rose Drying Frame — Full Size</option>
+          <option>Graduation Cap — Simple</option>
+          <option>Graduation Cap — Full</option>
+          <option>Extra Accessories (Glasses / Umbrellas / Newspaper / Pins)</option>
+          <option>Offer / عرض</option>
+          <option>Immediate Purchase / شراء فوري</option>
+          <option>Handmade Creation / عمل يدوي خاص</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Notes / ملاحظات</label>
+        <textarea class="form-textarea" id="f-notes" placeholder="أي طلبات خاصة / Any special requests..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Payment Method / طريقة الدفع *</label>
+        <select class="form-select" id="f-pay">
+          <option>InstaPay / إنستاباي</option>
+          <option>Vodafone Cash / فودافون كاش</option>
+        </select>
+      </div>
+
+      <button class="submit-btn" onclick="submitOrder()">
+        ارسلي طلبك عبر واتساب<br>
+        <span style="font-size:11px;opacity:0.8;letter-spacing:1px;">SEND ORDER VIA WHATSAPP</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- PAYMENT -->
+  <section class="section" id="sec-payment">
+    <h2 class="section-heading">Payment Methods</h2>
+    <p class="section-sub">طرق الدفع — الدفع مسبقاً قبل الشحن</p>
+
+    <div class="payment-card">
+      <p class="pay-title-label">Pay Via</p>
+      <p class="pay-title-main">InstaPay</p>
+
+      <div class="qr-placeholder">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E8567F" stroke-width="1.5">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <circle cx="17" cy="17" r="2"/>
+          <path d="M14 14h3"/><path d="M17 14v3"/>
+        </svg>
+        <span>Your InstaPay QR</span>
+        <span style="font-size:10px;opacity:0.6;">ضعي كود QR الخاص بك هنا</span>
+      </div>
+
+      <p style="font-size:11px;color:var(--text-muted);font-family:'Josefin Sans',sans-serif;letter-spacing:0.5px;">Replace placeholder above with your InstaPay QR code</p>
+    </div>
+
+    <div class="payment-methods">
+      <div class="pay-method">
+        <div class="pay-method-icon">📱</div>
+        <div class="pay-method-name" style="color:var(--pink);">InstaPay</div>
+        <div class="pay-method-ar">إنستاباي</div>
+      </div>
+      <div class="pay-method">
+        <div class="pay-method-icon">🔴</div>
+        <div class="pay-method-name" style="color:var(--red);">Vodafone Cash</div>
+        <div class="pay-method-ar">فودافون كاش</div>
+      </div>
+    </div>
+
+    <div class="pay-note">
+      ✅ All orders are prepaid before shipping<br>
+      جميع الطلبات مدفوعة مسبقاً قبل الشحن
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="sec-about">
+    <h2 class="section-heading">About Us</h2>
+    <p class="section-sub">عنّا — جاليري قصاقيص by Koky</p>
+    <div class="about-card">
+      <p>Welcome to <strong style="color:var(--pink);">Qasaqees Gallery by Koky</strong> — your destination for unique handmade bridal, engagement, and celebration accessories shipped all across Egypt.</p>
+      <p style="direction:rtl;text-align:right;">أهلاً بك في <strong style="color:var(--pink);">جاليري قصاقيص by كوكي</strong> — وجهتك لإكسسوارات الأفراح والخطوبة والمناسبات المصنوعة يدوياً، بشحن لجميع محافظات مصر</p>
+      <div>
+        <div class="info-row">
+          <span class="info-icon">🎨</span>
+          <span>Color Palette: White &middot; Pink &middot; Touch of Red</span>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📦</span>
+          <span>Shipping all over Egypt / شحن لجميع المحافظات</span>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">💬</span>
+          <span>WhatsApp: <a href="https://wa.me/201278939652" style="color:var(--pink);font-weight:700;">01278939652</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">✅</span>
+          <span>Prepaid via InstaPay or Vodafone Cash</span>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📋</span>
+          <span>Order via website form or WhatsApp / الطلب عبر الموقع أو واتساب</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-bar" style="justify-content:flex-start;flex-wrap:wrap;">
+      <a class="social-btn btn-whatsapp" href="https://wa.me/201278939652" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.531 5.845L.057 23.535a.75.75 0 00.918.918l5.69-1.474C8.374 23.601 10.148 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.851 0-3.624-.484-5.166-1.335l-.37-.213-3.828.991.991-3.828-.213-.37A9.715 9.715 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        WhatsApp Us
+      </a>
+      <a class="social-btn btn-instagram" href="https://instagram.com" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a class="social-btn btn-facebook" href="https://facebook.com" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <strong>Qasaqees Gallery by Koky</strong><br>
+  <span style="opacity:0.7;">جاليري قصاقيص</span><br><br>
+  Bridal · Engagement · Flowers · Graduation · Décor<br>
+  <a href="https://wa.me/201278939652">01278939652</a> &nbsp;·&nbsp; Shipping all over Egypt 🇪🇬
+</footer>
+
+<!-- FLOATING WhatsApp -->
+<a class="wa-float" href="https://wa.me/201278939652" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.531 5.845L.057 23.535a.75.75 0 00.918.918l5.69-1.474C8.374 23.601 10.148 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.851 0-3.624-.484-5.166-1.335l-.37-.213-3.828.991.991-3.828-.213-.37A9.715 9.715 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goOrder(product) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sec-order').classList.add('active');
+    document.querySelectorAll('.tab-btn')[2].classList.add('active');
+    setTimeout(() => {
+      const sel = document.getElementById('f-product');
+      const keyword = product.split(' ')[0];
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text.includes(keyword)) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+      document.getElementById('f-name').focus();
+    }, 100);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function submitOrder() {
+    const name    = document.getElementById('f-name').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const gov     = document.getElementById('f-gov').value;
+    const product = document.getElementById('f-product').value;
+    const notes   = document.getElementById('f-notes').value.trim();
+    const pay     = document.getElementById('f-pay').value;
+
+    if (!name || !phone || !gov || !product) {
+      showToast('اكملي الحقول المطلوبة ⚠️');
+      return;
+    }
+
+    const msg =
+      `🌸 *طلب جديد — جاليري قصاقيص by Koky*\n\n` +
+      `👤 الاسم: ${name}\n` +
+      `📞 التليفون: ${phone}\n` +
+      `📍 المحافظة: ${gov}\n` +
+      `🛍 المنتج: ${product}\n` +
+      `💳 الدفع: ${pay}\n` +
+      `📝 ملاحظات: ${notes || 'لا يوجد'}\n\n` +
+      `_تم الإرسال من الموقع الإلكتروني_`;
+
+    window.open(`https://wa.me/201278939652?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
+
+</body>
+</html>
